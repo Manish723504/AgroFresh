@@ -1,0 +1,17 @@
+nav{
+    background-color: rgba(27, 91, 211, 0.793) !important;
+}
+.nav-link,.navbar-brand{
+
+    color: white !important;
+    font-size: 20px;
+    
+    
+}
+.nav-link:hover{
+    color: green !important;
+}
+.dropdown-item{
+
+    color: red !important;
+}
