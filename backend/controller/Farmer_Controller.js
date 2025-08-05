@@ -1,4 +1,45 @@
 import farmerModel from "../model/Farmer_Model.js"
+import ProductModel from "../model/Product_Model.js";
+
+
+//addProduct function--------------------------------
+
+export async function addProduct(request,response) 
+{
+
+
+  try {
+    const {
+      farmer,
+      productName,
+      productCategory,
+      productDescription,
+      productPrice,
+      
+    }
+     = request.body;
+
+    
+    const productPic = request.file ? request.file.filename : '';
+
+    const newProduct = new ProductModel({
+      farmer,
+      productName,
+      productCategory,
+      productDescription,
+      productPrice,
+      productPic,
+      productStatus: 'available' 
+    });
+
+    await newProduct.save();
+    response.json({ message: 'Product added successfully', product: newProduct });
+  } catch (error) {
+    console.error('Error adding product:', error);
+    response.status(500).json({ error: 'Server error while adding product' });
+  }
+  
+}
 
 //farmer profile
 

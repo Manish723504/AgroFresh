@@ -10,10 +10,9 @@ const FeedbackSchema = new mongoose.Schema(
         rating: { type: String, required: true },
         remarks: { type: String, required: true },
 
-        
     }
 
-
+    
 )
 const FeedbackModel= mongoose.model("feedback",FeedbackSchema)
 export default FeedbackModel 
