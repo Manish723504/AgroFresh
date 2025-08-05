@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Header from "./Header";
+import Footer from "./Footer";
+import '../css/Feedback.css'
 
 const Feedback = () => {
 
@@ -34,74 +36,63 @@ const Feedback = () => {
 
             console.log(err);
 
-            
+
         }
     }
     return (
         <>
-         <Header/>
-            <div style={{ backgroundColor: "#EEAECA", backgroundImage: " radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%)" }}>
+            <Header />
 
-                <div style={{ width: "50%", height: "750px", borderRadius: "10px", marginLeft: "25%" }}>
+    <div className="contact-container" >
+      <div className="contact-box" >
+        <div className="contact-info">
+        </div>
 
-                    <h1 style={{ textAlign: "center", padding: "20px" }}>Feedback Form</h1>
+        <form className="contact-form"  onSubmit={submitData}>
+          <h2>Feedback Form</h2>
+          <p>Just write us a feedback</p>
 
-                    <form onSubmit={submitData} >
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            onChange={FetchData}
+            value={feedback.name}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={FetchData}
+            value={feedback.email}
+          />
+          <input
+            type="text"
+            name="rating"
+            placeholder="Rating"
+           onChange={FetchData}
+           value={feedback.rating}
+          />
+          <textarea
+            name="remarks"
+            placeholder="Write your message"
+            rows="4"
+           onChange={FetchData}
+          value={feedback.remarks}
+          ></textarea>
 
-                        <div className="mb-3" style={{ width: "70%", alignItems: "center", marginLeft: "90px" }}>
-                            <label htmlFor="Name" className="form-label"> Name</label>
-                            <input type="text" className="form-control" id="Name" placeholder="Enter First Name" name="name"
-                                onChange={FetchData}
-                                value={feedback.name}
-                            />
-                        </div>
+          <button type="submit">Send Feedback</button>
+        </form>
+      </div>
+    </div>
 
-                        <div className="mb-3" style={{ width: "70%", marginLeft: "90px" }}>
-                            <label htmlFor="exampleInputEmail1" className="form-label"> Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="exampleInputEmail1"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Email Address"
-                                name="email"
-                                onChange={FetchData}
-                                value={feedback.email}
-                            />
-
-                        </div>
-                        <div className="mb-3" style={{ width: "70%", marginLeft: "90px" }}>
-                            <label htmlFor="exampleFormControlTextarea1" className="form-label">Rating</label>
-                            <textarea className="form-control"
-                                id="exampleFormControlTextarea1" rows="3"
-                                name="rating"
-                                placeholder="Rating"
-                                onChange={FetchData}
-                                value={Feedback.rating}
-                                
-                            > </textarea>
-
-                        </div>
-
-                        <div className="mb-3" style={{ width: "70%", marginLeft: "90px" }}>
-                            <label htmlFor="exampleFormControlTextarea1" className="form-label">Remarks</label>
-                            <textarea className="form-control"
-                                id="exampleFormControlTextarea1" rows="3"
-                                name="remarks"
-                                placeholder="Remarks"
-                                onChange={FetchData}
-                                value={Feedback.remarks}
-
-                            > </textarea>
-
-                        </div>
-
-                        <button type="submit" className="btn btn-primary" style={{ marginLeft: "40%" }}>Submit</button>
-                    </form>
-
-                </div>
-
+            <div style={{ height: "300px", width: "100%", backgroundImage: "url(./homepage.webp)", padding: "40px" }}>
+                <h1 style={{ marginLeft: "500px", color: "green" }} >Need More Information?</h1>
+                <button type="button" class="btn btn-success" style={{ marginLeft: "600px" }}>CONTACT US TODAY</button>
+                <h1 style={{ marginLeft: "500px" }} >Or call us at: +91 7235040032 </h1>
             </div>
+            <Footer />
+
         </>
     );
 

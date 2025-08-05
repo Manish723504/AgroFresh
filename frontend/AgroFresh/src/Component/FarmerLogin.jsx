@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 function FarmerLogin() {
@@ -25,14 +26,26 @@ function FarmerLogin() {
             const serverResponse = await axios.post(URL, logindata)
             console.log(serverResponse);
             const msg = serverResponse.data.status
-            if (msg === "success")
-{
-              localStorage.setItem("emailKey",serverResponse.data.token)
-                // alert("login successful")
+            if (msg === "success") {
+                localStorage.setItem("emailKey", serverResponse.data.token)
+                
+                Swal.fire({
+
+                    title: "👍Login SuccesFull👍",
+                    text: serverResponse.data.message,
+                    icon: "success"
+
+                });
                 navigate("/farmerHome")
-}
+            }
             else
-                alert("invalid Credentails")
+               Swal.fire({
+
+                    title: "Password Wrong",
+                    text: serverResponse.data.message,
+                    icon: "error"
+
+                });
 
         }
         catch (err) {
@@ -50,7 +63,7 @@ function FarmerLogin() {
                 <div style={{ width: "30%", height: "390px", backgroundColor: " rgba(0, 0, 0, 0.3)", marginLeft: "33%", padding: "50px", borderRadius: "20px", color: "black" }}>
                     <h2 style={{ textAlign: "center", marginBottom: "25px" }}>Farmer Login</h2>
                     <form onSubmit={submitData}>
-                        
+
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

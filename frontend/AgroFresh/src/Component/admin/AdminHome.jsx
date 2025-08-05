@@ -6,6 +6,7 @@ function AdminHome()
 {
 
     const URL ="http://localhost:5000/admin/adminProfile"
+
     const [profile,setProfile]=useState({name:"",email:"",password:"",phone:""})
 
 
@@ -42,7 +43,11 @@ useEffect(()=>
         <>
         <FarmerHeader/>
         <div style={{marginTop:"50px",textAlign:"center"}}>
+            
              <h1>WellCome My Admin Page </h1>
+
+             <h1>phone:{profile.phone}</h1>
+             <h1>name:{profile.name}</h1>
              </div>
 
 

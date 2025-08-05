@@ -1,4 +1,5 @@
 import Carousel from "./Component/Carousel"
+import Footer from "./Component/Footer"
 import Header from "./Component/Header"
 
 function App() {
@@ -8,8 +9,7 @@ function App() {
 
     <>
 
-      <div style={{ color: "white", backgroundColor: "DodgerBlue", width: "100%", height: "60px", margin: "0px" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "0px" }}>Agro Fresh App Welcome You!!</h1></div>
+      
 
       <Header/>
       <Carousel />
@@ -18,10 +18,10 @@ function App() {
         As the pioneers behind the introduction of 1-MCP for ethylene management, as well as Uvasys,
         the world’s first laminated SO2 generating sheets product, we deliver answers at every step of
         the supply chain to help your produce—and your business—get where it needs to go.</p>
-        
-        
         </div>
         <button type="button" class="btn btn-success" style={{ marginLeft: "400px" }}>Learn More</button>
+        <Footer/>
+
     </>
   )
 

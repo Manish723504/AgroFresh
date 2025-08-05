@@ -11,10 +11,15 @@ import AdminLogin from "./Component/admin/AdminLogin"
 import FarmerLogin from "./Component/FarmerLogin"
 import FarmerHome from "./Component/FarmerHome"
 import AdminHome from "./Component/admin/AdminHome"
+import Footer from "./Component/Footer"
+import ProductForm from "./Component/productForm"
+
+
 
 function PathMapper() {
     return (
         <>
+
             <BrowserRouter>
 
                 <Routes>
@@ -30,6 +35,9 @@ function PathMapper() {
                     <Route path="/farmerLogin" element={<FarmerLogin/>}></Route>
                     <Route path="/farmerHome" element={<FarmerHome/>}></Route>
                     <Route path="/adminHome" element={<AdminHome/>}></Route>
+                    <Route path="/footer" element={<Footer/>}></Route>
+                    <Route path="/productForm" element={<ProductForm/>}></Route>
+                
                    
 
 
